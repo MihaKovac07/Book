@@ -11,13 +11,17 @@
     <input type="number" id="page">
     <br>
     <button onclick="calculate()">Submit</button>
-    <p id="izpis"></p>
+    <p id="koliko"></p>
+    <p id="dokam"></p>
 
     <script>
         function calculate() {
             let current_page = document.getElementById("page").value;
             let remaining_pages = 1000 - current_page;
-            document.getElementById("izpis").innerHTML = remaining_pages / daysTillEnd
+            let page_num = Math.ceil(remaining_pages / daysTillEnd);
+            let doStrani = Math.ceil(page_num +  parseInt(current_page)) ;
+            document.getElementById("koliko").innerHTML = "Number of pages: " + page_num;
+            document.getElementById("dokam").innerHTML = "Do strani: " + doStrani;
         }
 
         function daysBetween(d1, d2) {
