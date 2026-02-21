@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+</head>
+<body>
+    Page number:
+    <input type="number" id="page">
+    <button onclick="calculate()">Submit</button>
+    <p id="izpis"></p>
+
+    <script>
+        function calculate() {
+            let current_page = document.getElementById("page").value;
+            let remaining_pages = 1000 - current_page;
+            document.getElementById("izpis").innerHTML = remaining_pages / daysTillEnd
+        }
+
+        function daysBetween(d1, d2) {
+            const date1 = new Date(d1.getFullYear(), d1.getMonth(), d1.getDate());
+            const date2 = new Date(d2.getFullYear(), d2.getMonth(), d2.getDate());
+            return Math.round((date2 - date1) / (1000 * 60 * 60 * 24));
+        }
+
+        const today = new Date();
+        const april1 = new Date(today.getFullYear(), 3, 1);
+        const daysTillEnd = daysBetween(today, april1);
+    </script>
+</body>
+</html>
